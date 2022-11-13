@@ -2,4 +2,12 @@
   {{ title }}
 </h1>
 <hr>
-<fruta></fruta>
+<div *ngIf="componente == true">
+  <button (click)="cambiarComponente(false)">Cambiar de Componente (a Fruta)</button>
+  <empleado></empleado>
+</div>
+
+<div *ngIf="componente == false">
+  <button (click)="cambiarComponente(true)">Cambiar de Componente (a Empleado)</button>
+  <fruta></fruta>
+</div>

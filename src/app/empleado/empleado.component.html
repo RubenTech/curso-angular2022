@@ -1,3 +1,44 @@
 <h2>
     {{ nombre_componente }}
 </h2>
+Empleado:
+<ul>
+    <li>
+        {{emp.nombre}}
+    </li>
+    <li>
+        {{emp.edad}}
+    </li>
+    <li *ngIf="emp.esHombre == true">
+            Hombre
+    </li>
+    <li *ngIf="emp.esHombre == false">
+        Mujer
+    </li>
+</ul>
+Listado de Empleados:
+<ul>
+    <li *ngFor="let item of listadoEmpleados; let i = index">
+        Empleado {{i+1}}:
+        <ul [ngSwitch]="item.colorOjos"> <!-- Esta directiva siempre va entre corchetes y se le indica una propiedad -->
+            <li>
+                {{item.nombre}}
+            </li>
+            <li>
+                {{item.edad}}
+            </li>
+            <li *ngIf="item.esHombre == true">
+                Hombre
+            </li>
+            <li *ngIf="item.esHombre == false">
+                Mujer
+            </li>
+            <li *ngSwitchCase="'blue'" [ngStyle]="{'background': item.colorOjos, 'color': 'white' }">
+                Color Ojos
+            </li>
+            <li *ngSwitchCase="'black'" [ngStyle]="{'background' :item.colorOjos, 'color': 'white' }">
+                Color Ojos
+            </li>
+        </ul>   
+    </li>
+</ul>
