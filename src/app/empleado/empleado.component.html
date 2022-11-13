@@ -33,7 +33,9 @@ Listado de Empleados:
             <li *ngIf="item.esHombre == false">
                 Mujer
             </li>
-            <li *ngSwitchCase="'blue'" [ngStyle]="{'background': item.colorOjos, 'color': 'white' }">
+            <!-- La directiva *ngSwitchCase siempre inici[a con * esto hace que se muestre o no cierta parte del html
+            La directiva [ngStyle] siempre va entre [], todo dentro del estilo va entre '' excepto las propiedades como en este caso item.colorOjos -->
+            <li *ngSwitchCase="'blue'" [ngStyle]="{'background': item.colorOjos, 'color': 'white' }"> 
                 Color Ojos
             </li>
             <li *ngSwitchCase="'black'" [ngStyle]="{'background' :item.colorOjos, 'color': 'white' }">
@@ -42,3 +44,15 @@ Listado de Empleados:
         </ul>   
     </li>
 </ul>
+
+<!-- prueba de ngStyle en divs -->
+
+<div [ngSwitch]="value">
+    <!-- El número no va entre comillas por ser número, si fuera texto tendría que ir entre comillas -->
+    <div *ngSwitchCase="1">
+            Es 1
+    </div>
+    <div *ngSwitchCase="2">
+        Es 2
+    </div>
+</div>
