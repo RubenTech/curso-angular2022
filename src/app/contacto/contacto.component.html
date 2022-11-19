@@ -1,0 +1,8 @@
+<h3>{{nombre_componente}}</h3>
+<div *ngIf="parametroUrl">
+    Parámetro recibido: {{ parametroUrl }}
+</div>
+<div *ngIf="!parametroUrl">
+    <button (click)="redirigir1()"> Ir a la pagina principal </button>
+    <button (click)="redirigir2()"> Ir a contacto Rubén Hdz </button>
+</div>

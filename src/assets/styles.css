@@ -1,0 +1,15 @@
+.fondoCeleste{
+    background: lightblue;
+}
+
+.fondoRosa{
+    background: pink;
+}
+
+.letraGrande{
+    font-size:30px;
+}
+
+.activado{
+    background-color: yellow;
+}

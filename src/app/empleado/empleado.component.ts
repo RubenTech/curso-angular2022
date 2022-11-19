@@ -19,7 +19,7 @@ export class EmpleadoComponent {
             new Empleado("Juan", 19, true, 'blue'),
             new Empleado("Panchita", 32, false, 'black')
         ] ;
-        this.value = 1;
+        this.value = 0;
   }
 
   ngOnInit(){

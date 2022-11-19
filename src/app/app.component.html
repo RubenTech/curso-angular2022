@@ -2,7 +2,7 @@
   {{ title }}
 </h1>
 <hr>
-<div *ngIf="componente == true">
+<!-- <div *ngIf="componente == true">
   <button (click)="cambiarComponente(false)">Cambiar de Componente (a Fruta)</button>
   <empleado></empleado>
 </div>
@@ -10,4 +10,11 @@
 <div *ngIf="componente == false">
   <button (click)="cambiarComponente(true)">Cambiar de Componente (a Empleado)</button>
   <fruta></fruta>
-</div>
+</div> -->
+<nav>
+  <a [routerLink]="['/inicio']" [routerLinkActive]="['activado']">Inicio</a>-
+  <a [routerLink]="['/empleado']" [routerLinkActive]="['activado']">Empleado</a>-
+  <a [routerLink]="['/fruta']" [routerLinkActive]="['activado']">Fruta</a>-
+  <a [routerLink]="['/contacto']" [routerLinkActive]="['activado']">Contacto</a>
+</nav>
+<router-outlet></router-outlet>

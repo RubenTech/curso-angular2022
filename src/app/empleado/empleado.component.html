@@ -35,6 +35,7 @@ Listado de Empleados:
             </li>
             <!-- La directiva *ngSwitchCase siempre inici[a con * esto hace que se muestre o no cierta parte del html
             La directiva [ngStyle] siempre va entre [], todo dentro del estilo va entre '' excepto las propiedades como en este caso item.colorOjos -->
+            <!-- El ngSytle es para agregar estilo, no importa si esta dentro o no de html en el que se haya colocado un ngSwitch -->
             <li *ngSwitchCase="'blue'" [ngStyle]="{'background': item.colorOjos, 'color': 'white' }"> 
                 Color Ojos
             </li>
@@ -42,17 +43,26 @@ Listado de Empleados:
                 Color Ojos
             </li>
         </ul>   
-    </li>
+    </li> 
 </ul>
 
+<!-- ngModel es [()] PARA PODER UTILIZAR ESTO SE REQUIERE AGREGAR AL MODULE EL FORMS--> 
+<input type="text" [(ngModel)]="value" />
 <!-- prueba de ngStyle en divs -->
 
-<div [ngSwitch]="value">
-    <!-- El número no va entre comillas por ser número, si fuera texto tendría que ir entre comillas -->
-    <div *ngSwitchCase="1">
+<!-- Lo siguiente [class.fondoCeleste] = "value == 1" [class.fondoRosa] = "value == 2"
+     es similar a utilizar el ngClass -->
+     <!-- ngClass para establecer una o mas clases fijas va entre [] y el nombre de la clase en ´´ -->
+<div [ngClass] = "['letraGrande']">
+    <div [ngSwitch]="value" [style.border]="value == 1? '2px solid black': '2px solid blue'" [ngClass]="['letraGrande']"
+        [ngClass]="{ fondoCeleste: value == 1, fondoRosa: value == 2}">
+        <!-- en ngClass se requiere {} la sintaxis no es la de un ternario, se activan las "n" clases que cumplan su condición -->
+        <!-- El número no va entre comillas por ser número, si fuera texto tendría que ir entre comillas -->
+        <div *ngSwitchCase="1">
             Es 1
-    </div>
-    <div *ngSwitchCase="2">
-        Es 2
+        </div>
+        <div *ngSwitchCase="2">
+            Es 2
+        </div>
     </div>
 </div>
